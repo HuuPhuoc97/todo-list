@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as action from '../todoItem.action';
+import { Link } from 'react-router-dom';
 
 const TodoItemDetailComponent = props => {
   const { todoDetail } = props.todo;
@@ -24,7 +25,11 @@ const TodoItemDetailComponent = props => {
             <h4 className="todo-title mt-3">Title: {todoDetail?.title}</h4>
             <p className="mt-3">Description: {todoDetail?.description}</p>
             <p className="mt-3">Completion status: {todoDetail?.completionStatus}</p>
-            <p className="mt-3">Due date: {todoDetail?.dueDate}</p>
+            <p className="mt-3">Due date: {new Date(todoDetail?.dueDate).toLocaleDateString('en-GB')}</p>
+
+            <div className="btn btn-secondary btn-close mt-3">
+              <Link to="/">Back to list</Link>
+            </div>
           </div>
         </div>
       </div>

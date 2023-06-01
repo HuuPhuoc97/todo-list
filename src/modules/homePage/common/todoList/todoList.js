@@ -57,7 +57,7 @@ const TodoList = props => {
                               <p className="mt-1">Completion status: {item.completionStatus}</p>
                             </div>
                             <div className="col-9 mt-1">
-                              <p>Due date: {item.dueDate}</p>
+                              <p>Due date: {new Date(item.dueDate).toLocaleDateString('en-GB')}</p>
                             </div>
                             <div className="col-3 pl-0 d-flex justify-content-end align-items-end">
                               <Link to={`/todo-detail/${item.id}`} className="view-todo-btn mr-2">
